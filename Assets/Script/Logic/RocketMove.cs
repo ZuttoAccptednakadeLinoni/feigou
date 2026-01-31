@@ -1,9 +1,4 @@
-/****************************************************
-    文件：RocketMove.cs
-    作者：k0itoyuu
-    日期：#CreateTime#
-    功能：控制火箭移动
-*****************************************************/
+
 /****************************************************
     文件：PhysicsRocketController.cs
     作者：k0itoyuu
@@ -17,7 +12,7 @@ public class PhysicsRocketController : MonoBehaviour
 {
     [Header("物理设置")]
     [SerializeField, Range(0f, 50f)] 
-    private float downwardAcceleration = 9.81f; // 默认向下的加速度（模拟重力）
+    private float downwardAcceleration = 0f; // 默认向下的加速度（模拟重力）
     [SerializeField, Range(1f, 50f)] 
     private float mouseAccelerationForce = 20f; // 鼠标加速力大小
     [SerializeField, Range(0.1f, 30000f)] 

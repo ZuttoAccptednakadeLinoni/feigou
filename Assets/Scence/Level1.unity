@@ -224,6 +224,8 @@ GameObject:
   m_Component:
   - component: {fileID: 397806395}
   - component: {fileID: 397806394}
+  - component: {fileID: 397806397}
+  - component: {fileID: 397806396}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -291,13 +293,55 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397806393}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.78, y: -7.62, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 66.282684, y: -50.47093, z: 10.817552}
   m_LocalScale: {x: 8.310336, y: 8.310336, z: 8.310336}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1131688699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &397806396
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397806393}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &397806397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397806393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db3bab6093244c4bac3a37cab0185ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 0.1
+  gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  autoSetMassFromRigidbody: 1
 --- !u!1 &777061621
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +352,8 @@ GameObject:
   m_Component:
   - component: {fileID: 777061622}
   - component: {fileID: 777061623}
+  - component: {fileID: 777061625}
+  - component: {fileID: 777061624}
   m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
@@ -382,6 +428,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &777061624
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777061621}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &777061625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777061621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db3bab6093244c4bac3a37cab0185ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 0.1
+  gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  autoSetMassFromRigidbody: 1
 --- !u!1 &1131688698
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +502,7 @@ Transform:
   - {fileID: 1160920644}
   - {fileID: 2107355730}
   - {fileID: 777061622}
+  - {fileID: 397806395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160920642
@@ -426,6 +515,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1160920644}
   - component: {fileID: 1160920643}
+  - component: {fileID: 1160920646}
+  - component: {fileID: 1160920645}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -500,6 +591,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1131688699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1160920645
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160920642}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1160920646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160920642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db3bab6093244c4bac3a37cab0185ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 10000
+  gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  autoSetMassFromRigidbody: 1
 --- !u!1 &1323540966
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,9 +643,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1323540968}
   - component: {fileID: 1323540967}
-  - component: {fileID: 1323540969}
   - component: {fileID: 1323540970}
   - component: {fileID: 1323540971}
+  - component: {fileID: 1323540972}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -581,38 +714,12 @@ Transform:
   m_GameObject: {fileID: 1323540966}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4159813, y: 0.07332873, z: 0}
+  m_LocalPosition: {x: 31.4, y: 51.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1323540969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323540966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dc3c060e38754046a3519d8056bce95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  downwardAcceleration: 9.81
-  mouseAccelerationForce: 20
-  maxSpeed: 30000
-  airResistance: 0.05
-  accelerationKey: 323
-  minMouseDistance: 0.5
-  accelerationDeadzone: 0.2
-  trailRenderer: {fileID: 0}
-  accelerationParticles: {fileID: 0}
-  gravityParticles: {fileID: 0}
-  currentVelocity: {x: 0, y: 0}
-  currentSpeed: 0
-  totalAcceleration: {x: 0, y: 0}
-  isMouseAccelerating: 0
 --- !u!50 &1323540970
 Rigidbody2D:
   serializedVersion: 4
@@ -652,6 +759,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de1b4267f8034a4ca1e28cd136ac8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planets:
+  - {fileID: 1160920642}
+  - {fileID: 2107355729}
+  - {fileID: 777061621}
+  - {fileID: 397806393}
+  gravitationalConstant: 49.9
+  rocketMass: 1
+  minDistance: 1
+  timeScale: 1
+  showDebugLines: 1
+  showForceVectors: 1
+  showResultantForce: 1
+--- !u!114 &1323540972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323540966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc3c060e38754046a3519d8056bce95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downwardAcceleration: 0
+  mouseAccelerationForce: 20
+  maxSpeed: 15
+  airResistance: 0.05
+  accelerationKey: 323
+  minMouseDistance: 0.5
+  accelerationDeadzone: 0.2
+  trailRenderer: {fileID: 0}
+  accelerationParticles: {fileID: 0}
+  gravityParticles: {fileID: 0}
+  currentVelocity: {x: 0, y: 0}
+  currentSpeed: 0
+  totalAcceleration: {x: 0, y: 0}
+  isMouseAccelerating: 0
 --- !u!1 &2107355729
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +807,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2107355730}
   - component: {fileID: 2107355731}
+  - component: {fileID: 2107355733}
+  - component: {fileID: 2107355732}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -736,11 +883,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2107355732
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107355729}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2107355733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107355729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db3bab6093244c4bac3a37cab0185ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 0.1
+  gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  autoSetMassFromRigidbody: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 108572744}
-  - {fileID: 397806395}
   - {fileID: 1323540968}
   - {fileID: 1131688699}
