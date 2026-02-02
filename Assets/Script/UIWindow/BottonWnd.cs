@@ -25,19 +25,11 @@ public class BottonWnd : WindowRoot
     public Ease rotationEase = Ease.OutBack;
     public RotateMode rotateMode = RotateMode.FastBeyond360;
     
+    public LoadingWnd loadingWnd;
+    public BeginWnd beginWnd;
+    
     private Sequence rotationSequence;
     private float currentYRotation = 0f;
-    
-    void Start()
-    {
-
-        
-        // 保存初始旋转
-        if (beginObject != null)
-        {
-            currentYRotation = beginObject.eulerAngles.y;
-        }
-    }
     
     void OnDestroy()
     {
@@ -49,11 +41,20 @@ public class BottonWnd : WindowRoot
         
 
     }
-    
+    public void RotateCenter()
+    {
+        if (currentYRotation == 0)
+        {
+            loadingWnd.SetWndState(true);
+            beginWnd.SetWndState(false);
+            SetWndState(false);
+        }
+    }
     void RotateLeft()
     {
         // 从右向左旋转：Y轴减90度
         RotateTo(currentYRotation - 90f);
+        
     }
     
     void RotateRight()
