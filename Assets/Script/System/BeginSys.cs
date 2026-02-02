@@ -32,10 +32,10 @@ public class BeginSys : SystemRoot
             //加载完成以后再打开选择界面
             //selectLevelWind.SetWndState();
             //audioSvc.PlayBGMusic(Constants.BGLogin);
-            GameRoot.AddTips(("左键加速，右键减速"));
-            GameRoot.AddTips(("load"));
-            GameRoot.AddTips(("load111"));
-            GameRoot.AddTips(("load31w"));
+            // GameRoot.AddTips(("左键加速，右键减速"));
+            // GameRoot.AddTips(("load"));
+            // GameRoot.AddTips(("load111"));
+            // GameRoot.AddTips(("load31w"));
         });
     }   
     public void RspLogin() {

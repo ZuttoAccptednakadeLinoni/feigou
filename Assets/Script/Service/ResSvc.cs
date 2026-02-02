@@ -32,7 +32,7 @@ public class ResSvc : MonoBehaviour
         await SceneManager.LoadSceneAsync(scenename).ToUniTask(
             (Progress.Create<float>((p) =>
             {
-                GameRoot.Instance.loadingWind.SetProgress(p);
+                //GameRoot.Instance.loadingWind.SetProgress(p);
                 Debug.Log(p);
                 if (p *100>= 1)
                 {
