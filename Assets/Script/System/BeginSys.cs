@@ -11,7 +11,7 @@ using UnityEngine;
 public class BeginSys : SystemRoot
 {
     public static BeginSys Instance = null;
-    public SelectLevelWnd selectLevelWind;//选择关卡窗口
+    //public SelectLevelWnd selectLevelWind;//选择关卡窗口
     //public CreateWnd createWnd;
     /// <summary>
     /// 初始化
@@ -29,8 +29,8 @@ public class BeginSys : SystemRoot
     public void EnterLogin()
     {
         resSvc.AsyncLoadScene(Constants.SceneLogin, () => {
-            //加载完成以后再打开关卡选择界面
-            selectLevelWind.SetWndState();
+            //加载完成以后再打开选择界面
+            //selectLevelWind.SetWndState();
             //audioSvc.PlayBGMusic(Constants.BGLogin);
             GameRoot.AddTips(("左键加速，右键减速"));
             GameRoot.AddTips(("load"));
@@ -39,10 +39,10 @@ public class BeginSys : SystemRoot
         });
     }   
     public void RspLogin() {
-        GameRoot.AddTips("登录成功");
+        GameRoot.AddTips("进入游戏");
      
 
-        selectLevelWind.SetWndState(false);
+        //selectLevelWind.SetWndState(false);
     }
 }
 

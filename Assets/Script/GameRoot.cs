@@ -13,33 +13,33 @@ public class GameRoot : MonoBehaviour
     public static GameRoot Instance=null;
     public LoadingWnd loadingWind;
     public DynamicWnd dynamicWnd;
+    public BottonWnd bottonWnd;
     void Start()
     {
         Instance = this;
         DontDestroyOnLoad(this);
         Debug.Log("GameStart>>>");
-        
 
-        
         Init();
     }
     private void Init()
     {
-        //资源加载
-        ResSvc res = GetComponent<ResSvc>();
-        res.InitSvc();
-        
-        //音乐加载
-        AudioSvc audio = GetComponent<AudioSvc>();
-        audio.InitSvc();
-        
+        // //资源加载
+        // ResSvc res = GetComponent<ResSvc>();
+        // res.InitSvc();
+        //
+        // //音乐加载
+        // AudioSvc audio = GetComponent<AudioSvc>();
+        // audio.InitSvc();
+        //
         //业务系统初始化
-        BeginSys begin = GetComponent<BeginSys>();
-        begin.InitSys();
+        // BeginSys begin = GetComponent<BeginSys>();
+        // begin.InitSys();
         
         
         //进入登录场景并加载相应UI
-        begin.EnterLogin();
+        //begin.EnterLogin();
+        bottonWnd.SetWndState();
     }
     public static void AddTips(string tips) {
         Instance.dynamicWnd.AddTips(tips);
