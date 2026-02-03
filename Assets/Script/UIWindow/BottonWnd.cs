@@ -27,6 +27,7 @@ public class BottonWnd : WindowRoot
     
     public LoadingWnd loadingWnd;
     public BeginWnd beginWnd;
+    public SettingUIWnd settingUiWnd;
     
     private Sequence rotationSequence;
     private float currentYRotation = 0f;
@@ -48,63 +49,24 @@ public class BottonWnd : WindowRoot
             loadingWnd.SetWndState(true);
             beginWnd.SetWndState(false);
             SetWndState(false);
-        }
-    }
-    void RotateLeft()
-    {
-        // 从右向左旋转：Y轴减90度
-        RotateTo(currentYRotation - 90f);
-        
-    }
-    
-    void RotateRight()
-    {
-        // 从左向右旋转：Y轴加90度
-        RotateTo(currentYRotation + 90f);
-    }
-    
-    void ResetRotation()
-    {
-        // 重置为0度
-        RotateTo(0f);
-    }
-    
-    void RotateTo(float targetAngle)
-    {
-        // 停止当前动画
-        if (rotationSequence != null && rotationSequence.IsActive())
+        }else if (currentYRotation == 270)
         {
-            rotationSequence.Kill();
+            settingUiWnd.SetWndState();
+            beginWnd.SetWndState(false);
         }
-        
-        // 更新当前角度
-        currentYRotation = targetAngle;
-        
-        // 使用DOTween旋转
-        rotationSequence = DOTween.Sequence();
-        rotationSequence.Append(
-            beginObject.DORotate(
-                new Vector3(0, targetAngle, 0),
-                rotationDuration,
-                rotateMode
-            ).SetEase(rotationEase)
-        );
-        
-        // 可以添加回调
-        rotationSequence.OnComplete(() => {
-            Debug.Log($"旋转完成，当前角度: {beginObject.eulerAngles.y:F1}°");
-        });
     }
-    
+   
     // 快速旋转方法
     public void QuickRotateLeft()
     {
-        RotateWithDuration(currentYRotation - 90f, 0.2f);
+        beginWnd.SetMoveAvtive((currentYRotation - 90f+360)%360);
+        RotateWithDuration((currentYRotation - 90f+360)%360, 0.2f);
     }
     
     public void QuickRotateRight()
     {
-        RotateWithDuration(currentYRotation + 90f, 0.2f);
+        beginWnd.SetMoveAvtive((currentYRotation + 90f)%360);
+        RotateWithDuration((currentYRotation + 90f)%360, 0.2f);
     }
     
     void RotateWithDuration(float targetAngle, float duration)
