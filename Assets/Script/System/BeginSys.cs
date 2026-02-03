@@ -13,6 +13,7 @@ public class BeginSys : SystemRoot
     public static BeginSys Instance = null;
     //public SelectLevelWnd selectLevelWind;//选择关卡窗口
     //public CreateWnd createWnd;
+    public BeginWnd beginWnd ;
     /// <summary>
     /// 初始化
     /// </summary>
@@ -36,6 +37,7 @@ public class BeginSys : SystemRoot
             // GameRoot.AddTips(("load"));
             // GameRoot.AddTips(("load111"));
             // GameRoot.AddTips(("load31w"));
+            beginWnd.SetWndState();
         });
     }   
     public void RspLogin() {

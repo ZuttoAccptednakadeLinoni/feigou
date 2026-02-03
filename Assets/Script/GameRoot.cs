@@ -41,7 +41,7 @@ public class GameRoot : MonoBehaviour
         //进入登录场景并加载相应UI
         begin.EnterLogin();
         bottonWnd.SetWndState();
-        
+        //bottonWnd
     }
     public static void AddTips(string tips) {
         Instance.dynamicWnd.AddTips(tips);
