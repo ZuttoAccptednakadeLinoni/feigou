@@ -52,15 +52,16 @@ public class PhysicsRocketController : MonoBehaviour
     private float distanceToMouse;
     private float lastAccelerationTime;
 
+    public AchivpopWnd achivpopWnd;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
-        
+        achivpopWnd.SetWndState();
         // 设置 Rigidbody2D 参数
         rb.gravityScale = 0f; // 禁用Unity物理重力，使用自定义重力
         rb.drag = 0f; // 禁用默认阻力，使用自定义空气阻力
-        
+        //EventCenter.Instance.AddEventListener<int>("EventSunNumChange",CheckUnLock);
         // 初始化视觉效果
         if (trailRenderer != null)
             trailRenderer.emitting = true;
@@ -68,18 +69,20 @@ public class PhysicsRocketController : MonoBehaviour
         if (gravityParticles != null && gravityParticles.isPlaying)
             gravityParticles.Stop();
     }
-
+    
     void Update()
     {
         HandleMouseInput();
-        UpdateVisualEffects();
         UpdateDebugInfo();
+        if (rb.velocity.magnitude > 10)//事件监听
+        {
+            Debug.Log(rb.velocity.magnitude);
+            EventCenter.Instance.EventTrigger("MoveAchiv");
+        }
     }
-
     void FixedUpdate()
     {
         ApplyPhysicsForces();
-        ApplyAirResistance();
         ClampMaxSpeed();
     }
 
@@ -144,21 +147,7 @@ public class PhysicsRocketController : MonoBehaviour
         return Mathf.Pow(normalizedDistance, 0.7f);
     }
 
-    /// <summary>
-    /// 应用空气阻力
-    /// </summary>
-    private void ApplyAirResistance()
-    {
-        if (airResistance > 0 && rb.velocity.magnitude > 0.1f)
-        {
-            // 空气阻力与速度平方成正比（更真实的物理模拟）
-            float speed = rb.velocity.magnitude;
-            float resistanceForce = airResistance * speed * speed;
-            Vector2 resistanceDirection = -rb.velocity.normalized;
-            
-            rb.AddForce(resistanceDirection * resistanceForce * Time.fixedDeltaTime, ForceMode2D.Force);
-        }
-    }
+   
 
     /// <summary>
     /// 限制最大速度
@@ -170,56 +159,6 @@ public class PhysicsRocketController : MonoBehaviour
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
     }
-
-    /// <summary>
-    /// 更新视觉效果
-    /// </summary>
-    private void UpdateVisualEffects()
-    {
-        // 更新拖尾效果
-        if (trailRenderer != null)
-        {
-            float speedRatio = currentSpeed / maxSpeed;
-            trailRenderer.time = Mathf.Lerp(0.5f, 2f, speedRatio);
-            trailRenderer.widthMultiplier = Mathf.Lerp(0.1f, 0.5f, speedRatio);
-        }
-        
-        // 控制加速粒子效果
-        if (accelerationParticles != null)
-        {
-            if (isMouseAccelerating && !accelerationParticles.isPlaying)
-            {
-                accelerationParticles.Play();
-            }
-            else if (!isMouseAccelerating && accelerationParticles.isPlaying)
-            {
-                accelerationParticles.Stop();
-            }
-            
-            // 根据加速度强度调整粒子发射率
-            if (isMouseAccelerating)
-            {
-                var emission = accelerationParticles.emission;
-                float rate = Mathf.Lerp(10f, 50f, CalculateDistanceFactor(distanceToMouse));
-                emission.rateOverTime = rate;
-            }
-        }
-        
-        // 重力粒子效果（当向下加速度较大时显示）
-        if (gravityParticles != null)
-        {
-            float gravityStrength = downwardAcceleration / 9.81f;
-            if (gravityStrength > 0.5f && !gravityParticles.isPlaying)
-            {
-                gravityParticles.Play();
-            }
-            else if (gravityStrength <= 0.5f && gravityParticles.isPlaying)
-            {
-                gravityParticles.Stop();
-            }
-        }
-    }
-
     /// <summary>
     /// 更新调试信息
     /// </summary>

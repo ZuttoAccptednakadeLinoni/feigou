@@ -35,6 +35,8 @@ public class SettingUIWnd : WindowRoot
 
 	public void SaveClick()
 	{
+		Debug.Log(audioSvc==null);
+		Debug.Log(resSvc==null);
 		audioSvc.SetBGAudioVolume(bgAudioSlider.value);
 		audioSvc.SetUIAudioVolume(uiAudioSlider.value);
 	}
