@@ -31,7 +31,10 @@ public class BottonWnd : WindowRoot
     
     private Sequence rotationSequence;
     private float currentYRotation = 0f;
-    
+    protected  override void InitWnd()
+    {
+        base.InitWnd();
+    }
     void OnDestroy()
     {
         // 清理DOTween
@@ -44,11 +47,18 @@ public class BottonWnd : WindowRoot
     }
     public void RotateCenter()
     {
-        if (currentYRotation == 0)
+        if (currentYRotation == 0)//开始游戏
         {
             loadingWnd.SetWndState(true);
             beginWnd.SetWndState(false);
-            SetWndState(false);
+            
+            Debug.Log(resSvc==null);
+            Debug.Log(audioSvc==null);
+            Debug.Log(Constants.Level1);
+            resSvc.AsyncLoadScene(Constants.Level1, () =>
+            {
+                SetWndState(false);
+            });
         }else if (currentYRotation == 270)
         {
             settingUiWnd.SetWndState();
@@ -57,13 +67,13 @@ public class BottonWnd : WindowRoot
     }
    
     // 快速旋转方法
-    public void QuickRotateLeft()
+    public void QuickRotateLeft()//向左
     {
         beginWnd.SetMoveAvtive((currentYRotation - 90f+360)%360);
         RotateWithDuration((currentYRotation - 90f+360)%360, 0.2f);
     }
     
-    public void QuickRotateRight()
+    public void QuickRotateRight()//向右
     {
         beginWnd.SetMoveAvtive((currentYRotation + 90f)%360);
         RotateWithDuration((currentYRotation + 90f)%360, 0.2f);
