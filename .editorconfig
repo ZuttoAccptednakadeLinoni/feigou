@@ -1,0 +1,13 @@
+root = true
+
+[*.cs]
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+
+# Keep opening brace on the same line for all C# constructs
+# Set to `none` to avoid inserting a newline before `{`
+csharp_new_line_before_open_brace = none
+
+# Optional: ensure Roslyn-based formatters respect editorconfig
+dotnet_sort_system_directives_first = true

@@ -30,14 +30,15 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp-firstpass
-    - Assembly-CSharp
-    - UniTask.Linq
-    - Cinemachine
     - UniTask
     - PsdPlugin
+    - Cinemachine
+    - PPv2URPConverters
+    - Assembly-CSharp
+    - UniTask.Linq
+    - UniTask.TextMeshPro
     - UniTask.Addressables
     - UniTask.Editor
-    - UniTask.TextMeshPro
     - UniTask.DOTween
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
