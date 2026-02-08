@@ -24,7 +24,7 @@ public class AudioSvc : MonoBehaviour
         Instance = this;
         Debug.Log("Init AudioSvc...");
     }
-
+    
     public float GetBgVolume ()
     {
         return _bgVolume;

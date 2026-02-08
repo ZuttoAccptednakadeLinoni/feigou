@@ -2045,7 +2045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1015979192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3370,6 +3370,7 @@ GameObject:
   - component: {fileID: 1788021994}
   - component: {fileID: 1788021993}
   - component: {fileID: 1788021995}
+  - component: {fileID: 1788021996}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -3452,6 +3453,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beginWnd: {fileID: 1752149601}
+--- !u!114 &1788021996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788021990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b7012a7eeefa64487e7f300490957d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Building:
+    BID: 
+    achiv1: 0
+    achiv2: 0
 --- !u!1001 &1815080516
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -53,8 +53,10 @@ public class PhysicsRocketController : MonoBehaviour
     private float lastAccelerationTime;
 
     public AchivpopWnd achivpopWnd;
+    protected SaveSvc save = null;
     void Start()
     {
+        save = SaveSvc.Instance;
         rb = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
         achivpopWnd.SetWndState();
@@ -74,11 +76,12 @@ public class PhysicsRocketController : MonoBehaviour
     {
         HandleMouseInput();
         UpdateDebugInfo();
-        if (rb.velocity.magnitude > 10)//事件监听
-        {
-            Debug.Log(rb.velocity.magnitude);
-            EventCenter.Instance.EventTrigger("MoveAchiv");
-        }
+        // if (rb.velocity.magnitude > 10&&SaveSvc.Instance.Building.achiv1==false)//事件监听
+        // {
+        //     Debug.Log(rb.velocity.magnitude);
+        //     save.Building.achiv1 = true;
+        //     EventCenter.Instance.EventTrigger("MoveAchiv");
+        // }
     }
     void FixedUpdate()
     {

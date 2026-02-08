@@ -14,7 +14,7 @@ public class GameRoot : MonoBehaviour
     public LoadingWnd loadingWind;
     public DynamicWnd dynamicWnd;
     public BottonWnd bottonWnd;
-    
+
     void Start()
     {
         Instance = this;
@@ -33,10 +33,19 @@ public class GameRoot : MonoBehaviour
          AudioSvc audio = GetComponent<AudioSvc>();
          audio.InitSvc();
         
+         //SaveSvc save = GetComponent<SaveSvc>();
+         //save.InitSvc();
+         SaveSvc save = GetComponent<SaveSvc>();
+         //save.SaveData();
+         save.InitSvc();
+         save.LoadData();
+         Debug.Log("YesSave");
+         //save.SaveData();
         //业务系统初始化
          BeginSys begin = GetComponent<BeginSys>();
          begin.InitSys();
         
+         
         
         //进入登录场景并加载相应UI
         begin.EnterLogin();
