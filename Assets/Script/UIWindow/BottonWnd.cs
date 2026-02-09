@@ -28,12 +28,21 @@ public class BottonWnd : WindowRoot
     public LoadingWnd loadingWnd;
     public BeginWnd beginWnd;
     public SettingUIWnd settingUiWnd;
+    public AchievementWnd achievementWnd;
+    
     
     private Sequence rotationSequence;
     private float currentYRotation = 0f;
     protected  override void InitWnd()
     {
         base.InitWnd();
+        EventCenter.Instance.AddEventListener("ClickAction",ClickAction);//事件监听
+    }
+    private void ClickAction()//事件监听
+    {
+        Debug.Log("True");
+        achievementWnd.SetWndState();
+        
     }
     void OnDestroy()
     {
@@ -47,13 +56,11 @@ public class BottonWnd : WindowRoot
     }
     public void RotateCenter()
     {
+        
         if (currentYRotation == 0)//开始游戏
         {
             loadingWnd.SetWndState(true);
             beginWnd.SetWndState(false);
-            
-            Debug.Log(resSvc==null);
-            Debug.Log(audioSvc==null);
             Debug.Log(Constants.Level1);
             resSvc.AsyncLoadScene(Constants.Level1, () =>
             {
@@ -61,8 +68,11 @@ public class BottonWnd : WindowRoot
             });
         }else if (currentYRotation == 270)
         {
-            settingUiWnd.SetWndState();
             beginWnd.SetWndState(false);
+            settingUiWnd.SetWndState();
+            
+        }else if (currentYRotation == 90) {Debug.Log(currentYRotation);
+            EventCenter.Instance.EventTrigger("ClickAction");
         }
     }
    

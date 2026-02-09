@@ -2,7 +2,7 @@
     文件：AchivpopWnd.cs
 	作者：k0itoyuu
     日期：#CreateTime#
-	功能：Nothing
+	功能：弹出窗口
 *****************************************************/
 using System.Collections;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ public class AchivpopWnd : WindowRoot
 		}
 		Debug.Log("Yes");
 	}
-	public void MoveAchiv()//事件监听
+	private void MoveAchiv()//事件监听
 	{
 		popUI.SetActive(true);
 		StartUIPopupAnimation();
