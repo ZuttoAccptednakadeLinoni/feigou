@@ -29,7 +29,7 @@ public class BottonWnd : WindowRoot
     public BeginWnd beginWnd;
     public SettingUIWnd settingUiWnd;
     public AchievementWnd achievementWnd;
-    
+    public UIClickWnd uiClickWnd;
     
     private Sequence rotationSequence;
     private float currentYRotation = 0f;
@@ -56,19 +56,19 @@ public class BottonWnd : WindowRoot
     }
     public void RotateCenter()
     {
-        
+        beginWnd.SetWndState(false);
         if (currentYRotation == 0)//开始游戏
         {
             loadingWnd.SetWndState(true);
-            beginWnd.SetWndState(false);
             Debug.Log(Constants.Level1);
-            resSvc.AsyncLoadScene(Constants.Level1, () =>
+            resSvc.AsyncLoadScene(Constants.MainScence, () =>
             {
+                //uiClickWnd.SetWndState();
                 SetWndState(false);
+                
             });
         }else if (currentYRotation == 270)
         {
-            beginWnd.SetWndState(false);
             settingUiWnd.SetWndState();
             
         }else if (currentYRotation == 90) {Debug.Log(currentYRotation);

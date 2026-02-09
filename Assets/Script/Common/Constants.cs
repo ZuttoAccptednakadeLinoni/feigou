@@ -7,6 +7,7 @@
 public class Constants
 {
     //场景名称
+    public const string MainScence = "MainScence";
     public const string SceneLogin = "SceneLogin";
     public const string Level1 = "Level1";
     //音效名称
